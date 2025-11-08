@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | EduTrack</title>
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <style>
+    .vanta-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    }
+    .input-field {
+      transition: all 0.2s ease;
+    }
+    .input-field:focus {
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+    }
+    .role-tab {
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .role-tab.active {
+      background-color: #6366f1;
+      color: white;
+    }
+    .hidden {
+      display: none;
+    }
+    .notification {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .notification.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+  <div id="vanta-bg" class="vanta-bg"></div>
+
+  <!-- Main Content -->
+  <div class="w-full max-w-4xl mt-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- Left: Main form -->
+      <div class="glass-card p-8">
+        <div class="text-center mb-6">
+          <i data-feather="user-plus" class="h-10 w-10 text-indigo-600 mx-auto"></i>
+          <h2 class="mt-4 text-2xl font-bold text-gray-900">Get Started with EduTrack</h2>
+          <p class="mt-1 text-gray-600">Create your account to begin</p>
+        </div>
+
+        <!-- Role Selection -->
+        <div class="mb-6 flex justify-center gap-2">
+          <button type="button" class="role-tab px-4 py-2 rounded-l-md border border-gray-200 bg-indigo-600 text-white font-medium" data-role="student">Student</button>
+          <button type="button" class="role-tab px-4 py-2 border-t border-b border-gray-200 bg-white text-gray-700 font-medium" data-role="teacher">Teacher</button>
+          <button type="button" class="role-tab px-4 py-2 rounded-r-md border border-gray-200 bg-white text-gray-700 font-medium" data-role="parent">Parent</button>
+        </div>
+
+        <form id="registerForm" class="space-y-4" novalidate>
+          <input type="hidden" id="selectedRole" name="role" value="student">
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">First Name</label>
+              <input name="firstName" type="text" required class="input-field mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Last Name</label>
+              <input name="lastName" type="text" required class="input-field mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Email</label>
+            <input name="email" type="email" required class="input-field mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Password</label>
+              <input id="password" name="password" type="password" required class="input-field mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Confirm Password</label>
+              <input id="confirmPassword" name="confirmPassword" type="password" required class="input-field mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+              <input name="phone" type="tel" required class="input-field mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Date of Birth</label>
+              <input name="dateOfBirth" type="date" required class="input-field mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+            </div>
+          </div>
+
+          <!-- Address Information -->
+          <div class="border-t pt-4">
+            <h4 class="font-medium text-gray-800 mb-3">Address Information</h4>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Street Address</label>
+              <input name="address.street" type="text" required class="input-field mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700">City</label>
+                <input name="address.city" type="text" required class="input-field mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700">ZIP/Postal Code</label>
+                <input name="address.zipCode" type="text" required class="input-field mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+              </div>
+            </div>
+          </div>
+
+          <!-- CAPTCHA -->
+          <!-- CAPTCHA Section -->
+          <div class="mt-6">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Security Check</label>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-sm text-gray-600 dark:text-gray-400">Enter the text you see in the image</span>
+                <button type="button" id="refreshCaptcha" class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors" aria-label="Refresh CAPTCHA">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+              <div class="mb-3 flex justify-center">
+                <div class="relative w-full h-16 bg-gray-100 dark:bg-gray-700 rounded flex items-center justify-center overflow-hidden">
+                  <canvas id="captchaCanvas" class="w-full h-full"></canvas>
+                  <input type="hidden" id="captchaId" name="captchaId">
+                </div>
+              </div>
+              <div>
+                <input type="text" 
+                       id="captchaText" 
+                       name="captchaText" 
+                       required
+                       class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                       placeholder="Type the text above" 
+                       autocomplete="off"
+                       aria-label="CAPTCHA text input">
+                <p id="captchaError" class="mt-1 text-sm text-red-600 dark:text-red-400 hidden"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <button id="submitBtn" type="submit" class="w-full flex justify-center py-3 px-4 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+              Create Account
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right: Additional Info -->
+      <div class="glass-card p-8">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Additional Information</h3>
+        <p class="text-sm text-gray-600">Fields on the left adjust automatically based on your selected role (Student, Teacher, or Parent).</p>
+        <div class="mt-8 p-4 bg-indigo-50 rounded-lg">
+          <h4 class="font-medium text-indigo-900 mb-2">What you'll get:</h4>
+          <ul class="text-sm text-indigo-800 space-y-1">
+            <li>• Real-time academic tracking</li>
+            <li>• Secure data management</li>
+            <li>• Mobile-friendly interface</li>
+            <li>• 24/7 support access</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    feather.replace();
+
+    // Role Selection
+    document.addEventListener('DOMContentLoaded', function() {
+        const roleTabs = document.querySelectorAll('.role-tab');
+        const roleInput = document.getElementById('selectedRole');
+        
+        // Set initial active state for Student tab
+        roleTabs[0].classList.add('bg-indigo-600', 'text-white');
+        
+        // Handle role tab clicks
+        roleTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active state from all tabs
+                roleTabs.forEach(t => {
+                    t.classList.remove('bg-indigo-600', 'text-white');
+                    t.classList.add('bg-white', 'text-gray-700');
+                });
+                
+                // Add active state to clicked tab
+                this.classList.remove('bg-white', 'text-gray-700');
+                this.classList.add('bg-indigo-600', 'text-white');
+                
+                // Update hidden input value
+                const role = this.getAttribute('data-role');
+                roleInput.value = role;
+                
+                console.log('Selected role:', role); // For debugging
+            });
+            
+            // Add border radius classes
+            if (tab.getAttribute('data-role') === 'student') {
+                tab.classList.add('rounded-l-md');
+            } else if (tab.getAttribute('data-role') === 'parent') {
+                tab.classList.add('rounded-r-md');
+            } else {
+                tab.classList.add('border-t', 'border-b');
+            }
+        });
+    });
+
+    // CAPTCHA Implementation
+    document.addEventListener('DOMContentLoaded', function() {
+        const registerForm = document.getElementById('registerForm');
+        const captchaCanvas = document.getElementById('captchaCanvas');
+        const captchaTextInput = document.getElementById('captchaText');
+        const captchaIdInput = document.getElementById('captchaId');
+        const captchaError = document.getElementById('captchaError');
+        const refreshCaptchaBtn = document.getElementById('refreshCaptcha');
+        
+        // Current CAPTCHA data
+        let currentCaptcha = {
+            id: '',
+            text: ''
+        };
+
+        // Generate a random string for CAPTCHA with a mix of letters and numbers
+        function generateCaptchaText(length = 5) {
+            // Define character sets
+            const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnopqrstuvwxyz';
+            const numbers = '23456789';
+            let result = '';
+            
+            // Ensure we have at least 2 numbers and 2 letters
+            const numCount = 2 + Math.floor(Math.random() * 2); // 2-3 numbers
+            const letterCount = length - numCount;
+            
+            // Add letters
+            for (let i = 0; i < letterCount; i++) {
+                result += letters.charAt(Math.floor(Math.random() * letters.length));
+            }
+            
+            // Add numbers
+            for (let i = 0; i < numCount; i++) {
+                result += numbers.charAt(Math.floor(Math.random() * numbers.length));
+            }
+            
+            // Shuffle the result to mix letters and numbers
+            return result.split('').sort(() => 0.5 - Math.random()).join('');
+        }
+
+        // Draw CAPTCHA on canvas
+        function drawCaptcha(text) {
+            const ctx = captchaCanvas.getContext('2d');
+            const width = captchaCanvas.width = captchaCanvas.offsetWidth;
+            const height = captchaCanvas.height = captchaCanvas.offsetHeight;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Fill background
+            ctx.fillStyle = '#f8f9fa';
+            ctx.fillRect(0, 0, width, height);
+            
+            // Add noise
+            for (let i = 0; i < 100; i++) {
+                ctx.fillStyle = `rgba(0, 0, 0, ${Math.random() * 0.1})`;
+                ctx.fillRect(
+                    Math.random() * width,
+                    Math.random() * height,
+                    Math.random() * 2,
+                    Math.random() * 2
+                );
+            }
+            
+            // Add some random lines
+            for (let i = 0; i < 5; i++) {
+                ctx.strokeStyle = `rgba(0, 0, 0, ${Math.random() * 0.2})`;
+                ctx.beginPath();
+                ctx.moveTo(
+                    Math.random() * width,
+                    Math.random() * height
+                );
+                ctx.bezierCurveTo(
+                    Math.random() * width,
+                    Math.random() * height,
+                    Math.random() * width,
+                    Math.random() * height,
+                    Math.random() * width,
+                    Math.random() * height
+                );
+                ctx.stroke();
+            }
+            
+            // Calculate total text width and starting position
+            ctx.font = 'bold 32px Arial';
+            const charWidth = 30; // Approximate width per character
+            const totalWidth = charWidth * text.length;
+            let x = (width - totalWidth) / 2;
+            
+            // Draw each character with slight variations
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                
+                // Save the current context
+                ctx.save();
+                
+                // Position for this character (center vertically, space horizontally)
+                const y = height / 2 + (Math.random() * 10 - 5);
+                
+                // Move to character position
+                ctx.translate(x + (i * charWidth), y);
+                
+                // Random rotation (-15 to 15 degrees)
+                const angle = (Math.random() - 0.5) * 0.3; // -15 to 15 degrees in radians
+                ctx.rotate(angle);
+                
+                // Random color variation
+                const hue = 200 + Math.random() * 40 - 20; // Blue-ish hue
+                ctx.fillStyle = `hsl(${hue}, 70%, 30%)`;
+                
+                // Draw the character
+                ctx.fillText(char, 0, 0);
+                
+                // Restore the context for the next character
+                ctx.restore();
+            }
+        }
+
+        // Generate a new CAPTCHA
+        function generateCaptcha() {
+            // Generate a random string
+            const text = generateCaptchaText(6);
+            const id = 'cap_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+            
+            // Store the CAPTCHA data
+            currentCaptcha = {
+                id: id,
+                text: text
+            };
+            
+            // Update the hidden input
+            captchaIdInput.value = id;
+            
+            // Draw the CAPTCHA
+            drawCaptcha(text);
+            
+            // Clear any previous errors
+            captchaError.textContent = '';
+            captchaError.classList.add('hidden');
+            
+            return { id, text };
+        }
+
+        // Verify the CAPTCHA
+        function verifyCaptcha() {
+            const userInput = captchaTextInput.value.trim();
+            
+            if (!userInput) {
+                captchaError.textContent = 'Please enter the CAPTCHA text';
+                captchaError.classList.remove('hidden');
+                return false;
+            }
+            
+            // In a real app, you would verify this on the server side
+            const isMatch = userInput.toLowerCase() === currentCaptcha.text.toLowerCase();
+            
+            if (!isMatch) {
+                captchaError.textContent = 'Incorrect CAPTCHA. Please try again.';
+                captchaError.classList.remove('hidden');
+                // Generate a new CAPTCHA on failure
+                generateCaptcha();
+                captchaTextInput.value = '';
+                captchaTextInput.focus();
+                return false;
+            }
+            
+            captchaError.textContent = '';
+            captchaError.classList.add('hidden');
+            return true;
+        }
+
+        // Event Listeners
+        refreshCaptchaBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            generateCaptcha();
+            captchaTextInput.value = '';
+            captchaTextInput.focus();
+        });
+        
+        // Show success notification
+        function showSuccessMessage(message, role) {
+            // Create notification element if it doesn't exist
+            let notification = document.getElementById('successNotification');
+            if (!notification) {
+                notification = document.createElement('div');
+                notification.id = 'successNotification';
+                notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-all duration-300 translate-x-full';
+                document.body.appendChild(notification);
+            }
+            
+            // Set message and show notification
+            notification.textContent = message || 'Account created successfully!';
+            notification.classList.remove('translate-x-full');
+            notification.classList.add('translate-x-0');
+            
+            // Hide notification after 3 seconds and redirect
+            setTimeout(() => {
+                notification.classList.remove('translate-x-0');
+                notification.classList.add('translate-x-full');
+                
+                // Redirect after the hide animation completes
+                setTimeout(() => {
+                    // Redirect based on role
+                    const rolePath = role ? role.toLowerCase() : 'student';
+                    window.location.href = `/${rolePath}-dashboard.html`;
+                }, 300);
+            }, 2000);
+        }
+
+        // Form submission
+        registerForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Verify CAPTCHA before form submission
+            if (!verifyCaptcha()) {
+                return false;
+            }
+            
+            try {
+                // Get form data
+                const formData = new FormData(this);
+                const formObject = {};
+                formData.forEach((value, key) => {
+                    formObject[key] = value;
+                });
+                
+                // In a real app, you would send this data to your server
+                // For example:
+                // const response = await fetch('/api/register', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(formObject)
+                // });
+                // const data = await response.json();
+                
+                // For demo, we'll simulate a successful response
+                const role = formObject.role || 'student';
+                
+                // Show success message and redirect
+                showSuccessMessage('Account created successfully! Redirecting...', role);
+                
+            } catch (error) {
+                console.error('Registration error:', error);
+                captchaError.textContent = 'An error occurred. Please try again.';
+                captchaError.classList.remove('hidden');
+            }
+        });
+        
+        // Generate initial CAPTCHA
+        generateCaptcha();
+    });
+
+// Note: In a production environment, you should verify the CAPTCHA on the server side
+// by comparing the submitted captchaId and text with the server's stored values.
+// This is a client-side only implementation for demonstration purposes.
+
+// Server-side verification example (pseudo-code):
+/*
+app.post('/api/verify-captcha', (req, res) => {
+  const { captchaId, captchaText } = req.body;
+  
+  // Get the stored CAPTCHA data (from session, database, or cache)
+  const storedCaptcha = getStoredCaptcha(captchaId);
+  
+  if (!storedCaptcha || storedCaptcha.expires < Date.now()) {
+    return res.status(400).json({ success: false, message: 'CAPTCHA expired' });
+  }
+  
+  // Compare case-insensitively
+  const isMatch = storedCaptcha.text.toLowerCase() === captchaText.toLowerCase();
+  
+  // Delete the used CAPTCHA to prevent replay attacks
+  deleteCaptcha(captchaId);
+  
+  if (!isMatch) {
+    return res.status(400).json({ success: false, message: 'Incorrect CAPTCHA' });
+  }
+  
+  res.json({ success: true });
+});
+*/
+
+    // Password Validation
+    document.getElementById('confirmPassword').addEventListener('input', function() {
+      const password = document.getElementById('password').value;
+      this.setCustomValidity(this.value !== password ? "Passwords do not match" : "");
+    });
+
+    // Form Submission
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (parseInt(mathAnswer.value) !== currentAnswer) {
+        mathError.classList.remove('hidden');
+        return;
+      }
+      alert('Account created successfully!');
+    });
+
+    // Background Animation
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      color: 0x6366f1,
+      backgroundColor: 0xf8fafc
+    });
+  </script>
+</body>
+</html>

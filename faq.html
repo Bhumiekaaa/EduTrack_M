@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | EduTrack</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex-shrink-0 flex items-center">
+                        <i data-feather="book-open" class="h-8 w-8 text-indigo-600"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">EduTrack</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="/features" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Features</a>
+                    <a href="/faq" class="text-indigo-600 px-3 py-2 text-sm font-medium">FAQ</a>
+                    <a href="/login" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-150">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Content -->
+    <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900">Frequently Asked Questions</h1>
+            <p class="mt-4 text-xl text-gray-600">Find answers to common questions about EduTrack</p>
+        </div>
+
+        <div class="space-y-4">
+            <!-- General Questions -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">General Questions</h2>
+                <div class="space-y-4">
+                    <div class="faq-item">
+                        <button onclick="toggleFAQ(1)" class="w-full flex justify-between items-center text-left">
+                            <h3 class="font-medium text-gray-900">Why was EduTrack created?</h3>
+                            <i data-feather\="chevron-down" class="text-indigo-600 transition-transform duration-300" id="faqIcon1"></i>
+                        </button>
+                        <div id="faqContent1" class="mt-2 hidden">
+                            <p class="text-gray-600">EduTrack was built to replace outdated manual systems with a smart, transparent, and digital platform that connects students, teachers, and parents efficiently.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button onclick="toggleFAQ(2)" class="w-full flex justify-between items-center text-left">
+                            <h3 class="font-medium text-gray-900">How does EduTrack keep data secure?</h3>
+                            <i data-feather\="chevron-down" class="text-indigo-600 transition-transform duration-300" id="faqIcon2"></i>
+                        </button>
+                        <div id="faqContent2" class="mt-2 hidden">
+                            <p class="text-gray-600">It uses role-based logins, encrypted connections, and secure databases to protect all user information from unauthorized access.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Questions -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Technical Questions</h2>
+                <div class="space-y-4">
+                    <div class="faq-item">
+                        <button onclick="toggleFAQ(3)" class="w-full flex justify-between items-center text-left">
+                            <h3 class="font-medium text-gray-900">How will EduTrack grow in the future?</h3>
+                            <i data-feather\="chevron-down" class="text-indigo-600 transition-transform duration-300" id="faqIcon3"></i>
+                        </button>
+                        <div id="faqContent3" class="mt-2 hidden">
+                            <p class="text-gray-600">EduTrack is scalable and modular, allowing easy integration of features like mobile apps, AI analytics, and online payments in the future.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button onclick="toggleFAQ(4)" class="w-full flex justify-between items-center text-left">
+                            <h3 class="font-medium text-gray-900">Why choose EduTrack over others?</h3>
+                            <i data-feather\="chevron-down" class="text-indigo-600 transition-transform duration-300" id="faqIcon4"></i>
+                        </button>
+                        <div id="faqContent4" class="mt-2 hidden">
+                            <p class="text-gray-600">EduTrack offers a clean design, real-time updates, and multi-role access, making it a reliable and user-friendly solution for modern colleges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Support -->
+        <div class="mt-12 text-center">
+            <h2 class="text-xl font-medium text-gray-900">Still have questions?</h2>
+            <p class="mt-2 text-gray-600">Our support team is happy to help</p>
+            <div class="mt-4">
+                <a href="/contact" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition duration-150">
+                    <i data-feather="mail" class="mr-2"></i> Contact Support
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gray-500 text-sm">&copy; 2023 EduTrack. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+        });
+
+        function toggleFAQ(id) {
+            const content = document.getElementById(`faqContent${id}`);
+            const icon = document.getElementById(`faqIcon${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+</body>
+</html>

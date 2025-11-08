@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Features | EduTrack</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <i data-feather="book-open" class="h-8 w-8 text-indigo-600"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">EduTrack</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="login.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Login</a>
+                    <a href="register.html" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-b from-indigo-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+                    🎓 EduTrack – Student Features
+                </h1>
+                <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                    Everything you need to excel in your academic journey, organized in one place.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Personal Dashboard -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">📅</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Personal Dashboard</h3>
+                </div>
+                <p class="text-gray-600">View all academic information in one organized interface.</p>
+            </div>
+
+            <!-- Notifications -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🔔</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Notifications & Announcements</h3>
+                </div>
+                <p class="text-gray-600">Get instant updates from teachers and the institution.</p>
+            </div>
+
+            <!-- Attendance Tracker -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🕒</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Attendance Tracker</h3>
+                </div>
+                <p class="text-gray-600">Check daily, weekly, and overall attendance status with visual charts.</p>
+            </div>
+
+            <!-- Subjects & Lectures -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">📚</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Subjects & Lectures</h3>
+                </div>
+                <p class="text-gray-600">Access subject details, lecture schedules, and class materials easily.</p>
+            </div>
+
+            <!-- Daily Schedule -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🗓️</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Daily Schedule</h3>
+                </div>
+                <p class="text-gray-600">Stay updated with your timetable and upcoming classes.</p>
+            </div>
+
+            <!-- Assignments -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🧾</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Assignments & Submissions</h3>
+                </div>
+                <p class="text-gray-600">View, download, and submit assignments online.</p>
+            </div>
+
+            <!-- Grades -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🧮</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Grades & Results</h3>
+                </div>
+                <p class="text-gray-600">Track marks, semester results, and performance analytics.</p>
+            </div>
+
+            <!-- Tests -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🧠</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Upcoming Tests</h3>
+                </div>
+                <p class="text-gray-600">Receive alerts for tests, exams, and deadlines.</p>
+            </div>
+
+            <!-- Fee Information -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">💰</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Fee Information</h3>
+                </div>
+                <p class="text-gray-600">Check fee details, payment status, and due dates.</p>
+            </div>
+
+            <!-- Teacher Communication -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">💬</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Teacher Communication</h3>
+                </div>
+                <p class="text-gray-600">Interact directly with faculty for queries and guidance.</p>
+            </div>
+
+            <!-- Dark/Light Mode -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🌙</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Dark/Light Mode</h3>
+                </div>
+                <p class="text-gray-600">Switch between visual themes for better user experience.</p>
+            </div>
+
+            <!-- Performance Insights -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">📈</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Performance Insights</h3>
+                </div>
+                <p class="text-gray-600">Visual representation of academic progress and attendance trends.</p>
+            </div>
+        </div>
+
+        <!-- Create Account Button -->
+        <div class="text-center mt-12">
+            <a href="register.html?role=student" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-indigo-700 shadow-md transition transform hover:scale-105">
+                Create Student Account
+            </a>
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

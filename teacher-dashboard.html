@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Teacher Dashboard | EduTrack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/teacher-dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <i class="ri-graduation-cap-line"></i>
+            <span>EduTrack</span>
+        </div>
+
+        <div class="navbar-center">
+            <input id="search-input" type="search" placeholder="Search students, subjects..." />
+        </div>
+
+        <div class="navbar-actions">
+            <div>
+                <button id="notification-btn" class="p-2 rounded-full" aria-label="Notifications">
+                    <i class="ri-notification-3-line" aria-hidden="true"></i>
+                    <span id="notification-badge" class="notification-badge">0</span>
+                </button>
+            </div>
+            <div>
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme"><i class="ri-moon-line"></i></button>
+            </div>
+            <div class="relative">
+                <button id="profile-btn" class="profile-btn" aria-haspopup="true" aria-expanded="false">
+                    <div class="avatar"><span class="animal">👩‍🏫</span></div>
+                    <span class="profile-name">Prof. Sharma</span>
+                    <i class="ri-arrow-down-s-line"></i>
+                </button>
+                <div id="profile-dropdown" class="profile-dropdown profile-card" role="menu" aria-hidden="true">
+                    <div class="profile-card-inner">
+                        <div class="profile-card-top">
+                            <div class="avatar"><span class="animal">👩‍🏫</span></div>
+                            <div class="profile-meta">
+                                <div class="profile-name-lg">Prof. Sharma</div>
+                                <div class="profile-email muted">sharma@school.edu</div>
+                            </div>
+                        </div>
+                        <div class="profile-card-details">
+                            <div class="detail"><span class="detail-label">Department:</span> Computer Science</div>
+                            <div class="detail"><span class="detail-label">Courses:</span> DSA, DBMS, Networks</div>
+                            <div class="detail"><span class="detail-label">Students:</span> 240</div>
+                        </div>
+                        <div class="profile-card-actions">
+                            <a href="#" class="text-link see-more">See more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <nav class="nav-menu">
+                    <a class="nav-item active"><i class="ri-dashboard-line"></i><span>Dashboard</span></a>
+                    <a class="nav-item"><i class="ri-team-line"></i><span>My Classes</span></a>
+                    <a class="nav-item"><i class="ri-calendar-check-line"></i><span>Attendance</span></a>
+                    <a class="nav-item"><i class="ri-file-list-3-line"></i><span>Assignments</span></a>
+                    <a class="nav-item"><i class="ri-book-open-line"></i><span>Gradebook</span></a>
+                    <a class="nav-item"><i class="ri-bar-chart-2-line"></i><span>Reports</span></a>
+                    <a class="nav-item"><i class="ri-message-2-line"></i><span>Messages</span></a>
+                    <div class="nav-divider"></div>
+                    <a class="nav-item"><i class="ri-settings-3-line"></i><span>Settings</span></a>
+                    <a class="nav-item text-danger"><i class="ri-logout-box-line"></i><span>Logout</span></a>
+                </nav>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="profile-compact">
+                    <div class="avatar small"><span class="animal">👩‍🏫</span></div>
+                    <div class="meta">
+                        <div class="name">Prof. Sharma</div>
+                        <div class="email">sharma@school.edu</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="main-inner">
+                <header class="page-header">
+                    <h1 id="greeting">Welcome back, Prof. Sharma!</h1>
+                    <p class="muted">Here's an overview of your classes and assignments.</p>
+                </header>
+
+            <section class="summary-cards">
+                <div class="card summary">
+                    <div class="card-body">
+                        <div class="card-title">Total Students</div>
+                        <div class="card-value" id="total-students">240</div>
+                    </div>
+                </div>
+                <div class="card summary">
+                    <div class="card-body">
+                        <div class="card-title">Courses Taught</div>
+                        <div class="card-value" id="subjects-taught">4</div>
+                    </div>
+                </div>
+                <div class="card summary">
+                    <div class="card-body">
+                        <div class="card-title">Attendance Rate</div>
+                        <div class="card-value" id="attendance-rate">87%</div>
+                    </div>
+                </div>
+                <div class="card summary">
+                    <div class="card-body">
+                        <div class="card-title">Assignments to Review</div>
+                        <div class="card-value" id="assignments-review">5</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Class Overview</h2>
+                        <a href="#" class="text-link">View all</a>
+                    </div>
+                    <div class="card-body class-overview" id="class-overview">
+                        <!-- Each class card filled by JS -->
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Attendance Management</h2>
+                        <button id="mark-attendance" class="btn btn-sm">Mark Today</button>
+                    </div>
+                    <div class="card-body">
+                        <p class="muted">Select a class and mark students present or absent quickly.</p>
+                        <div class="attendance-controls">
+                            <select id="attendance-class-select"></select>
+                            <button id="attendance-toggle" class="btn btn-outline">Toggle Present/Absent</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-3 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Assignments Panel</h2>
+                        <span class="muted">Submitted / Pending / Graded</span>
+                    </div>
+                    <div class="card-body" id="assignments-panel">
+                        <!-- populated by JS -->
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Grade Entry</h2>
+                        <a href="#" class="text-link">Open gradebook</a>
+                    </div>
+                    <div class="card-body" id="grade-entry">
+                        <!-- quick grade rows populated by JS -->
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Notices / Announcements</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="announcement-form">
+                            <input id="announcement-input" placeholder="Write an announcement..." />
+                            <button id="post-announcement" class="btn btn-primary">Post</button>
+                        </div>
+                        <div id="announcements-list" class="announcements-list"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card mt-4">
+                <div class="card-header">
+                    <h2>Upcoming Lectures</h2>
+                </div>
+                <div class="card-body" id="upcoming-lectures">
+                    <!-- JS populates today's schedule -->
+                </div>
+            </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="js/teacher-dashboard.js"></script>
+</body>
+</html>

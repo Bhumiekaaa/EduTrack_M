@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Features | EduTrack</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <i data-feather="book-open" class="h-8 w-8 text-indigo-600"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">EduTrack</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="login.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Login</a>
+                    <a href="register.html" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-b from-indigo-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+                    👩‍🏫 EduTrack – Teacher Features
+                </h1>
+                <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                    Empowering educators with tools to manage, monitor, and mentor students efficiently.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Personal Dashboard -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">📋</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Personal Dashboard</h3>
+                </div>
+                <p class="text-gray-600">Access and manage classes, subjects, and student data in one place.</p>
+            </div>
+
+            <!-- Student List Access -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🧍‍♂️</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Student List Access</h3>
+                </div>
+                <p class="text-gray-600">View detailed student profiles, performance, and attendance records.</p>
+            </div>
+
+            <!-- Attendance Management -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🕒</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Attendance Management</h3>
+                </div>
+                <p class="text-gray-600">Mark attendance digitally and monitor student presence trends.</p>
+            </div>
+
+            <!-- Assignments Control -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🧾</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Assignments Control</h3>
+                </div>
+                <p class="text-gray-600">Create, upload, and evaluate assignments with ease.</p>
+            </div>
+
+            <!-- Gradebook -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">📊</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Gradebook & Evaluation</h3>
+                </div>
+                <p class="text-gray-600">Record and track student marks with automated result summaries.</p>
+            </div>
+
+            <!-- Announcements -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">📢</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Announcements</h3>
+                </div>
+                <p class="text-gray-600">Send important updates and notices to students or guardians instantly.</p>
+            </div>
+
+            <!-- Lecture Schedule -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🗓️</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Lecture Schedule</h3>
+                </div>
+                <p class="text-gray-600">Manage and view upcoming lectures, meetings, and time slots.</p>
+            </div>
+
+            <!-- Communication Hub -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">💬</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Communication Hub</h3>
+                </div>
+                <p class="text-gray-600">Easily interact with students and guardians to provide support.</p>
+            </div>
+
+            <!-- Performance Analytics -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">📈</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Performance Analytics</h3>
+                </div>
+                <p class="text-gray-600">Analyze class performance, average grades, and attendance trends.</p>
+            </div>
+
+            <!-- Report Generation -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🧮</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Report Generation</h3>
+                </div>
+                <p class="text-gray-600">Export detailed reports for academic or administrative use.</p>
+            </div>
+
+            <!-- Dark/Light Mode -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🌙</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Dark/Light Mode</h3>
+                </div>
+                <p class="text-gray-600">Switch between comfortable viewing themes anytime.</p>
+            </div>
+
+            <!-- Institutional Notices -->
+            <div class="feature-card bg-white p-6 rounded-xl shadow-md">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="text-2xl">🏫</span>
+                    <h3 class="text-lg font-semibold text-gray-900">Institutional Notices</h3>
+                </div>
+                <p class="text-gray-600">Stay informed with official updates and academic circulars.</p>
+            </div>
+        </div>
+
+        <!-- Create Account Button -->
+        <div class="text-center mt-12">
+            <a href="register.html?role=teacher" 
+               class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-indigo-700 transition transform hover:scale-105 shadow-md">
+                Create Teacher Account
+            </a>
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
