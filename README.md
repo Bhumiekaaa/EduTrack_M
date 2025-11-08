@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EduTrack Backend
 
 A comprehensive backend server for the EduTrack Student Information System built with Node.js, Express, and MongoDB.
@@ -275,3 +276,7 @@ This project is licensed under the MIT License.
 ## Support
 
 For support and questions, please contact the development team or create an issue in the repository.
+=======
+# EduTrack_M
+A web-based Student Information Management System built with HTML, CSS, and JavaScript. EduTrack helps college students, teachers, and parents manage academic activities — including schedules, assignments, results, and fees — all in one responsive platform.
+>>>>>>> 675f0b6c194fd57dab91215e9c92cf749df19c9c
